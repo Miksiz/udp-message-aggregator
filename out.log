@@ -1,0 +1,12 @@
+{'timestamp': 1706296180, 'count_type': '10s', 'A1_sum': 21, 'A2_max': 40, 'A3_min': 100}
+{'timestamp': 1706296190, 'count_type': '10s', 'A1_sum': 21, 'A2_max': 40, 'A3_min': 100}
+{'timestamp': 1706296200, 'count_type': '10s', 'A1_sum': 21, 'A2_max': 40, 'A3_min': 100}
+{'timestamp': 1706296210, 'count_type': '10s', 'A1_sum': 0, 'A2_max': 0, 'A3_min': 0}
+{'timestamp': 1706296220, 'count_type': '10s', 'A1_sum': 0, 'A2_max': 0, 'A3_min': 0}
+{'timestamp': 1706296230, 'count_type': '10s', 'A1_sum': 0, 'A2_max': 0, 'A3_min': 0}
+{'timestamp': 1706296230, 'count_type': '60s', 'A1_sum': 63, 'A2_max': 40, 'A3_min': 100}
+{'timestamp': 1706296240, 'count_type': '10s', 'A1_sum': 0, 'A2_max': 0, 'A3_min': 0}
+{'timestamp': 1706296250, 'count_type': '10s', 'A1_sum': 0, 'A2_max': 0, 'A3_min': 0}
+{'timestamp': 1706296260, 'count_type': '10s', 'A1_sum': 0, 'A2_max': 0, 'A3_min': 0}
+{'timestamp': 1706296270, 'count_type': '10s', 'A1_sum': 0, 'A2_max': 0, 'A3_min': 0}
+{'timestamp': 1706296280, 'count_type': '10s', 'A1_sum': 0, 'A2_max': 0, 'A3_min': 0}
