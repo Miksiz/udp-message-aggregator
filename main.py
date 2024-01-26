@@ -95,8 +95,8 @@ def main(port: int) -> None:
                         socket.SOCK_DGRAM) # UDP
     sock.bind((UDP_IP, port))
     q = Queue() # Queue for values
-    # cpu_count = os.cpu_count()
-    cpu_count = 4
+    cpu_count = os.cpu_count()
+    # cpu_count = 4
     recievers = [ Process(target=reciever, args=(sock, q)) for _ in range(cpu_count) ]
     out_file = open('out.log', 'a')
     for r in recievers: r.start()
