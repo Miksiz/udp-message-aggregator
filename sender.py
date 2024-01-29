@@ -26,4 +26,5 @@ for data in to_send:
 sock.close()
 
 # echo -n "hello" | nc -u -w 1 127.0.0.1 8000
+# echo -n '{"A1":5, "A2":13, "A3":103}' | nc -u -w 1 127.0.0.1 8000
 # for i in `seq 10`; do echo -n "hello $i" | nc -u -w 1 127.0.0.1 8000; done

@@ -46,14 +46,20 @@ class ACounter:
     return out
 
 
-def reciever(sock, q: Queue) -> None:
+def reciever(q: Queue) -> None:
+  sock = socket.socket(socket.AF_INET, # Internet
+                        socket.SOCK_DGRAM) # UDP
+  sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+  sock.bind((UDP_IP, port))
   print(f"Started UDP reciever {os.getpid()}")
   while True:
     try:
       data = sock.recv(1024)
     except IOError:
+      sock.close()
       break
     except KeyboardInterrupt:
+      sock.close()
       break
     # print(f"Received message on {os.getpid()}: {data}")
     try:
@@ -91,13 +97,10 @@ def main_loop(q: Queue, out_file: TextIOWrapper) -> None:
       aCounter60.update(data)
 
 def main(port: int) -> None:
-    sock = socket.socket(socket.AF_INET, # Internet
-                        socket.SOCK_DGRAM) # UDP
-    sock.bind((UDP_IP, port))
     q = Queue() # Queue for values
     cpu_count = os.cpu_count()
     # cpu_count = 4
-    recievers = [ Process(target=reciever, args=(sock, q)) for _ in range(cpu_count) ]
+    recievers = [ Process(target=reciever, args=(q, )) for _ in range(cpu_count) ]
     out_file = open('out.log', 'a')
     for r in recievers: r.start()
     try:
@@ -105,7 +108,6 @@ def main(port: int) -> None:
     except KeyboardInterrupt:
       pass
     print('\nClosing socket and output file...')
-    sock.close()
     for r in recievers: r.join()
     out_file.close()
     print('Exiting program.')
